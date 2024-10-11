@@ -1,0 +1,45 @@
+1: Why did you choose the tools, libraries, and language you used for the coding exercise?
+
+I chose to use Python Flask because:
+    It is very simple and straightforward to use, with clear documentation found online and easy to incorporate existing Python DS/agorithms.
+    I wanted to learn how to apply Python to design RESTful APIs, branching out from previous projects using NodeJS and Express.
+    
+Beyond Python Flask, I used Postman as a very user-friendly way to test the functionality of my API against many different edge cases. 
+I provided SwaggerAPI docummentation to practice how to properly document a RESTful API for future clients.
+I also used GitHub copilot as guidance to developing functional code and debugging, but NOT as a replacement for human development. 
+
+
+2:  What are the advantages and disadvantages of your solution?
+
+Advantages:
+    Validates request body data.
+    Easy to keep track of total user balance through a singular variable.
+    Uses a python dictionary for an easy lookup of different payers and their points towards the user.
+    Added documentation to make reading code easier to follow.
+    Accomodates negative points for the "add" endpoint by checking if the point subtraction would make total balance negative.
+
+Disadvantages:
+    Trasnaction histories are in an array, requiring O(nlogn) sorting to determine which points to subtract from.
+    The for loop within the spendProducts() method is a little code-heavy and can be difficult to understand without documentation. 
+
+3:  What has been a favorite school/personal project thus far? What about it that challenged you?
+
+My favorite project has to have been my contact scraping project for Big Guava Realty last summer. 
+
+My manager wanted to increase his outreach in the Florida real estate market, so he asked me to automate the collection of the contacts of both buying and selling agents.
+Without any prior experience using Selenium, I felt challenged at first. To begin, I had to test multiple different listing websites until I could identify a public site that 
+I could create a Selenium program to scrape from.
+
+Ultimately, I designed a reusable program that could acquire and filter over 10,000 unique emails of Floridian selling agents and realtors in just over an hour. 
+This expanded my manager's outreach expanded from 3-4 to 30-40 leads per day.
+
+What I enjoyed most about this project was the direct impact that it made on Big Guava, as my manager has already secured multiple deals from contacts acquired through my program.
+Additionally, I improved my ability to learn a new technology on the fly and apply it to design an effective product, an invaluable professional skill.
+
+However, the most challenging part of this experience was then sharing this product with my non-technical manager, as many bugs surfaced throughout the development process.
+Therefore I had to:
+    1) Troubleshoot very efficiencly and communicate those changes to my manager.
+    2) Set up necessary technical infastructure on his local machine.
+    3) Translate from "technical" language to "business" language, emphasizing the importance of given programs.
+
+Overall, this was a really good experience to strengthen both my programming and communication skills this summer. 

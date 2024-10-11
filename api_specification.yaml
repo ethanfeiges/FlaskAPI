@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: Fetch Points Management API
+  version: 1.0.0
+  description: API for managing a singular user points with functionality to add, spend, and check balance.
+servers:
+  - url: http://localhost:8000
+paths:
+  /add:
+    post:
+      summary: Add Points
+      description: Adds or subtracts points to the user's account from a payer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payer:
+                  type: string
+                  description: The name of the payer adding points.
+                points:
+                  type: integer
+                  description: The number of points to add or subtract.
+                timestamp:
+                  type: string
+                  format: date-time
+                  description: The timestamp in ISO format when the points are added or subtracted.
+              required:
+                - payer
+                - points
+                - timestamp
+      responses:
+        '200':
+          description: Points added successfully.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Points added!
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Points must be an integer
+
+  /spend:
+    post:
+      summary: Spend Points
+      description: Deducts points from a user's account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                points:
+                  type: integer
+                  description: The number of points to spend.
+              required:
+                - points
+      responses:
+        '200':
+          description: Points spent successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    payer:
+                      type: string
+                      description: The name of the payer whose points were deducted.
+                    points:
+                      type: integer
+                      description: The amount deducted from the payer's balance.
+        '400':
+          description: Bad Request or Not enough points to spend
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Not enough points to spend
+
+  /balance:
+    get:
+      summary: Get Balance
+      description: Returns the current balance from each payer to the user.
+      responses:
+        '200':
+          description: Successfully retrieved balances.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  description: The balance of the payer.
