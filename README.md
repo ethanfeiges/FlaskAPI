@@ -77,7 +77,7 @@ This API manages point collection and spending for a singular user.
 
 4. **Install the dependencies:**
     ```bash
-    pip install flask, 
+    pip install flask
     ```
 
 ## Running the Application
