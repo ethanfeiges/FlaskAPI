@@ -1,6 +1,6 @@
 # FlaskAPI Setup Guide
 
-This API manages point collection and spending for a singular user. 
+This API manages point collection and spending for a singular user from multiple payers. 
 
 ## Endpoints
 
